@@ -1,0 +1,23 @@
+<p>Home </p>
+
+<% pancudos = @client.get_clan_info({clan_tag: '#YLRPYC0G'}) %>
+
+<% pancudos.each do |k, v|%>
+<p>
+<% if k === "memberList" %>
+    <%= "#{k}" %>
+    <% v.each do |member|%>
+      <div>
+      <% member.each do |k, v| %>
+          <p><%= "#{k} -> #{v}"%> </p>
+      <%end %>
+      </div>
+      <hr>
+    <% end
+  else %>
+    <%= "#{k} -> #{v}" %>
+  <%end%>
+</p>
+<% end %>
+
+
